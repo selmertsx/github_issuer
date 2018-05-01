@@ -7,4 +7,3 @@ build/**
 
 tmp/**
 .envrc.local
-.vscode
