@@ -3,8 +3,6 @@
   "rulesDirectory": ["tslint-plugin-prettier"],
   "rules": {
     "prettier": true,
-
-    // tslint rules
     "arrow-parens": false,
     "no-console": false,
     "no-empty": false,
