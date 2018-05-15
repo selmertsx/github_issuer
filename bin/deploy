@@ -1,0 +1,37 @@
+#!/bin/bash -e
+
+if [ -z "$STACK_NAME" ]; then
+  echo 'STACK_NAME is required'
+  exit 1
+fi
+
+if [ -z "$PACKAGE_BUCKET_NAME" ]; then
+  echo 'PACKAGE_BUCKET_NAME is required'
+  exit 1
+fi
+
+if [ -z "$GITHUB_TOKEN" ]; then
+  echo 'GITHUB_TOKEN is required'
+fi
+
+# Move project root
+cd "$(dirname "$(perl -e 'use Cwd "abs_path"; print abs_path(shift)' "$0")")/.."
+
+npm run lint
+npm run clean-build
+
+cp package.json dist/
+(cd dist && npm install --production)
+cp -R credentials dist/
+
+sam package \
+  --template-file src/template.yml \
+  --s3-bucket "$PACKAGE_BUCKET_NAME" \
+  --output-template-file dist/template.yml
+
+sam deploy \
+  --template-file dist/template.yml \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --stack-name "$STACK_NAME" \
+  --parameter-overrides \
+    "GitHubToken=${GITHUB_TOKEN}"

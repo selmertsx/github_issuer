@@ -33,5 +33,5 @@ export async function createIssue(
   const issuer = new Issuer(args[1], args[2]);
   issuer.authenticate();
   const response = await issuer.create(args[3]);
-  return buildResponse(200, response);
+  return buildResponse(200);
 }

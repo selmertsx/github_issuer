@@ -14,7 +14,7 @@ export class Issuer {
   public authenticate(): void {
     return this.octokit.authenticate({
       type: "token",
-      token: process.env.Token
+      token: process.env.GitHubToken
     });
   }
 
