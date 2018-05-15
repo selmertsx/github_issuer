@@ -19,12 +19,19 @@ export async function createIssue(
   if (!event.body) {
     return buildResponse(400);
   }
+
   const payload: ISlackEvent = JSON.parse(event.body);
   if (event.headers["X-Slack-Retry-Reason"] === "http_timeout") {
     return buildResponse(200, { status: "OK" });
   }
+
   if (payload.type === "url_verification") {
     return buildResponse(200, { challenge: payload.challenge });
   }
-  return buildResponse(200);
+
+  const args = payload.event.text.match(/issue\s(.*)\s(.*)\s(.*)/);
+  const issuer = new Issuer(args[1], args[2]);
+  issuer.authenticate();
+  const response = await issuer.create(args[3]);
+  return buildResponse(200, response);
 }
