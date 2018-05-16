@@ -6,7 +6,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: ./build/
-      Handler: index.createIssue
+      Handler: index.handler
       Runtime: nodejs8.10
       Timeout: 300
       MemorySize: 64
@@ -14,7 +14,7 @@ Resources:
         GetResource:
           Type: Api
           Properties:
-            Path: /create_issue
+            Path: /issues
             Method: post
       Environment:
         Variables:

@@ -12,7 +12,7 @@ function buildResponse(statusCode: number, body?): APIGatewayProxyResult {
   return { statusCode, body: JSON.stringify(body) };
 }
 
-export async function createIssue(
+export async function handler(
   event: APIGatewayEvent,
   context: Context
 ): Promise<APIGatewayProxyResult> {
