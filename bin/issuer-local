@@ -14,8 +14,4 @@ else
   exit 1
 fi
 
-sam local invoke Issuer \
-    -e ${json} \
-    --template template.yml \
-    --parameter-values ParameterKey=GitHubToken,ParameterValue=$GitHubToken \
-    --parameter-values ParameterKey=NodeEnv,ParameterValue=test
+GitHubToken=$GitHubToken sam local invoke Issuer -e ${json}
