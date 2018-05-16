@@ -14,7 +14,7 @@ else
   exit 1
 fi
 
-sam local invoke GetPRInfo \
+sam local invoke Issuer \
     -e ${json} \
     --template template.yml \
     --parameter-values ParameterKey=GitHubToken,ParameterValue=$GitHubToken \
