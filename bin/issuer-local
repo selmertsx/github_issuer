@@ -1,0 +1,21 @@
+#!/bin/sh -eu
+cd "$(dirname "$(perl -e 'use Cwd "abs_path";print abs_path(shift)' $0)")"
+cd ../
+
+BASE_DIR="$PWD"
+yarn build
+cp -f package.json build/package.json && cd build && yarn install --production
+cd $BASE_DIR
+
+if [[ $1 = "verify" ]]; then
+  json="jsons/verify.json"
+else
+  echo 'Invalid Argument' 1>&2
+  exit 1
+fi
+
+sam local invoke GetPRInfo \
+    -e ${json} \
+    --template template.yml \
+    --parameter-values ParameterKey=GitHubToken,ParameterValue=$GitHubToken \
+    --parameter-values ParameterKey=NodeEnv,ParameterValue=test

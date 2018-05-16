@@ -2,38 +2,37 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: Serverless PR Police
 Resources:
-  User:
-    Type: AWS::Serverless::SimpleTable
-
   GetPRInfo:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: ./build/
-      Handler: index.index
-      Runtime: nodejs6.10
+      Handler: index.createIssue
+      Runtime: nodejs8.10
       Timeout: 300
-      MemorySize: 128
+      MemorySize: 64
       Events:
         GetResource:
           Type: Api
           Properties:
-            Path: /index
+            Path: /create_issue
             Method: post
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref User
       Environment:
         Variables:
           SLACK_TOKEN: !Ref SlackToken
           NODE_ENV: !Ref NodeEnv
-          Token: !Ref Token
+          GitHubToken: !Ref GitHubToken
+
 Parameters:
   SlackToken:
-    Default: ""
     Type: String
+    Description: Slack bot user token to send a message
+    NoEcho: true
   NodeEnv:
-    Default: "test"
+    Default: test
     Type: String
-  Token:
-    Default: ""
+    Description: Environment of performing Lambda
+    NoEcho: true
+  GitHubToken:
     Type: String
+    Description: Token of GitHub Apps
+    NoEcho: true

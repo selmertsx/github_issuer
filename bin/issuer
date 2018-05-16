@@ -4,11 +4,13 @@ CMDDIR="$(dirname "$(perl -e 'use Cwd "abs_path";print abs_path(shift)' "$0")")"
 
 case "${1:-}" in
   deploy) shift 1; exec "$CMDDIR/issuer-deploy" "$@";;
+  local) shift 1; exec "$CMDDIR/issuer-local" "$@";;
   *)
     echo 'Usage: issuer <subcommand> [<args>]'
     echo
     echo 'Subcommands of issuer are:'
     echo '  deploy: deploy lambda function'
+    echo '  local: call lambda in local condition'
     echo
     ;;
 esac
