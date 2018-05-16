@@ -9,6 +9,8 @@ cd $BASE_DIR
 
 if [[ $1 = "verify" ]]; then
   json="jsons/verify.json"
+elif [[ $1 = "create" ]]; then
+  json="jsons/create_issue.json"
 else
   echo 'Invalid Argument' 1>&2
   exit 1
