@@ -1,0 +1,92 @@
+{
+  "data": {
+    "url": "https://api.github.com/repos/selmertsx/study/issues/1",
+    "repository_url": "https://api.github.com/repos/selmertsx/study",
+    "labels_url":
+      "https://api.github.com/repos/selmertsx/study/issues/1/labels{/name}",
+    "comments_url":
+      "https://api.github.com/repos/selmertsx/study/issues/1/comments",
+    "events_url":
+      "https://api.github.com/repos/selmertsx/study/issues/1/events",
+    "html_url": "https://github.com/selmertsx/study/issues/1",
+    "id": 323977395,
+    "number": 1,
+    "title": "sample",
+    "user": {
+      "login": "selmertsx",
+      "id": 1563239,
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1563239?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/selmertsx",
+      "html_url": "https://github.com/selmertsx",
+      "followers_url": "https://api.github.com/users/selmertsx/followers",
+      "following_url":
+        "https://api.github.com/users/selmertsx/following{/other_user}",
+      "gists_url": "https://api.github.com/users/selmertsx/gists{/gist_id}",
+      "starred_url":
+        "https://api.github.com/users/selmertsx/starred{/owner}{/repo}",
+      "subscriptions_url":
+        "https://api.github.com/users/selmertsx/subscriptions",
+      "organizations_url": "https://api.github.com/users/selmertsx/orgs",
+      "repos_url": "https://api.github.com/users/selmertsx/repos",
+      "events_url": "https://api.github.com/users/selmertsx/events{/privacy}",
+      "received_events_url":
+        "https://api.github.com/users/selmertsx/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-05-17T11:11:57Z",
+    "updated_at": "2018-05-17T11:11:57Z",
+    "closed_at": null,
+    "author_association": "OWNER",
+    "body": null,
+    "closed_by": null,
+    "reactions": {
+      "url": "https://api.github.com/repos/selmertsx/study/issues/1/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0
+    }
+  },
+  "meta": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers":
+      "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+    "cache-control": "private, max-age=60, s-maxage=60",
+    "connection": "close",
+    "content-length": "1769",
+    "content-security-policy": "default-src 'none'",
+    "content-type": "application/json; charset=utf-8",
+    "date": "Thu, 17 May 2018 11:11:57 GMT",
+    "etag": "\"cc41e556315663dd390a99a93c6c11ea\"",
+    "location": "https://api.github.com/repos/selmertsx/study/issues/1",
+    "referrer-policy":
+      "origin-when-cross-origin, strict-origin-when-cross-origin",
+    "server": "GitHub.com",
+    "status": "201 Created",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "vary": "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding",
+    "x-accepted-oauth-scopes": "",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-github-media-type": "github.squirrel-girl-preview",
+    "x-github-request-id": "D2E6:3D9F:129A31C:14F9B38:5AFD637D",
+    "x-oauth-scopes": "gist, notifications, repo",
+    "x-ratelimit-limit": "5000",
+    "x-ratelimit-remaining": "4999",
+    "x-ratelimit-reset": "1526559117",
+    "x-runtime-rack": "0.245176",
+    "x-xss-protection": "1; mode=block"
+  }
+}
