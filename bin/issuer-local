@@ -16,4 +16,4 @@ else
   exit 1
 fi
 
-GitHubToken=$GitHubToken sam local invoke Issuer -e ${json}
+GITHUB_TOKEN=$GITHUB_TOKEN SLACK_TOKEN=$SLACK_TOKEN sam local invoke Issuer -e ${json}

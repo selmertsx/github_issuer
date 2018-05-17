@@ -18,21 +18,21 @@ Resources:
             Method: post
       Environment:
         Variables:
-          SLACK_TOKEN: !Ref SlackToken
-          NODE_ENV: !Ref NodeEnv
-          GitHubToken: !Ref GitHubToken
+          SLACK_TOKEN: !Ref SLACK_TOKEN
+          NODE_ENV: !Ref NODE_ENV
+          GITHUB_TOKEN: !Ref GITHUB_TOKEN
 
 Parameters:
-  SlackToken:
+  SLACK_TOKEN:
     Type: String
     Description: Slack bot user token to send a message
     NoEcho: true
-  NodeEnv:
+  NODE_ENV:
     Default: test
     Type: String
     Description: Environment of performing Lambda
     NoEcho: true
-  GitHubToken:
+  GITHUB_TOKEN:
     Type: String
     Description: Token of GitHub Apps
     NoEcho: true

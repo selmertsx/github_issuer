@@ -6,7 +6,9 @@ import {
 } from "aws-lambda";
 
 import { Issuer } from "./issuer";
+import { Message } from "./message";
 import { ISlackEvent, ISlackEventCallback } from "./slack";
+import { SlackClient } from "./slack_client";
 
 function buildResponse(statusCode: number, body?): APIGatewayProxyResult {
   return { statusCode, body: JSON.stringify(body) };
