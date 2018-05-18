@@ -8,12 +8,12 @@ export class SlackClient {
     this.channelID = channelID;
   }
 
-  public async postMessage(message: string, attachements: any) {
+  public async postMessage(text: string, attachments: any) {
     const client = new WebClient(this.token);
-    await client.chat.postMessage({
+    return await client.chat.postMessage({
       channel: this.channelID,
-      text: message,
-      attachments: attachements
+      attachments,
+      text
     });
   }
 }
