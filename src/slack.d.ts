@@ -1,4 +1,4 @@
-export declare type ISlackEvent = ISlackUrlVerification | ISlackEventCallback;
+export declare type ISlackPayload = ISlackUrlVerification | ISlackAppMention;
 
 export interface ISlackUrlVerification {
   type: "url_verification";
@@ -6,26 +6,22 @@ export interface ISlackUrlVerification {
   challenge: string;
 }
 
-export interface ISlackEventCallback {
+export interface ISlackAppMention {
   type: "event_callback";
   token: string;
   team_id: string;
   api_app_id: string;
-  event: ISlackEventAppMention;
+  event: ISlackEvent;
   authed_users: string[];
   event_id: string;
   event_time: number;
 }
 
-export interface ISlackEventBody {
+export interface ISlackEvent {
   type: string;
   event_ts: string;
   user: string;
   ts: string;
-}
-
-export interface ISlackEventAppMention extends ISlackEventBody {
-  type: "app_mention";
   text: string;
   channel: string;
 }

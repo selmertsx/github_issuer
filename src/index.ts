@@ -7,7 +7,7 @@ import {
 
 import { Issuer } from "./issuer";
 import { Message } from "./message";
-import { ISlackEvent, ISlackEventCallback } from "./slack";
+import { ISlackPayload } from "./slack";
 import { SlackClient } from "./slack_client";
 
 function buildResponse(statusCode: number, body?): APIGatewayProxyResult {
@@ -22,7 +22,7 @@ export async function handler(
     return buildResponse(400);
   }
 
-  const payload: ISlackEvent = JSON.parse(event.body);
+  const payload: ISlackPayload = JSON.parse(event.body);
   if (event.headers["X-Slack-Retry-Reason"] === "http_timeout") {
     return buildResponse(200, { status: "OK" });
   }
@@ -35,5 +35,6 @@ export async function handler(
   const issuer = new Issuer(args[1], args[2]);
   issuer.authenticate();
   const response = await issuer.create(args[3]);
+  const client = new SlackClient(payload.event.channel);
   return buildResponse(200);
 }
