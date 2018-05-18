@@ -39,6 +39,5 @@ export async function handler(
   const client = new SlackClient(payload.event.channel);
   const message = new Message(response);
   await client.postMessage(message.text(), message.attachments());
-
   return buildResponse(200);
 }
